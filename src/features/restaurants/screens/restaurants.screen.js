@@ -10,41 +10,25 @@ const SafeArea = styled(SafeAreaView)`
 `;
 
 const SearchContainer = styled.View`
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 const RestaurantListInfo = styled.View`
   flex: 1;
-  padding: 16px;
-  background-color: 'blue';
+  padding: ${(props) => props.theme.space[3]};
 `;
 
 const RestaurantsScreen = () => {
   return (
-    <SafeArea style={styles.container}>
-      <SearchContainer style={styles.search}>
+    <SafeArea>
+      <SearchContainer>
         <Searchbar />
       </SearchContainer>
-      <RestaurantListInfo style={styles.list}>
+      <RestaurantListInfo>
         <RestaurantInfoCard />
       </RestaurantListInfo>
     </SafeArea>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    marginTop: StatusBar.currentHeight,
-  },
-  search: {
-    padding: 16,
-  },
-  list: {
-    flex: 1,
-    padding: 16,
-    backgroundColor: 'blue',
-  },
-});
 
 export default RestaurantsScreen;
