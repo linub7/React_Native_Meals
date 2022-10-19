@@ -5,7 +5,7 @@ import { Image, Text, View } from 'react-native';
 
 import star from '../../../../assets/icons/star';
 import open from '../../../../assets/icons/open';
-import Spacer from '../../../components/spacer/spacer.component';
+import { Spacer } from '../../../components/spacer/spacer.component';
 
 const RestaurantCard = styled(Card)`
   background-color: ${(props) => props.theme.colors.bg.primary};
@@ -79,10 +79,16 @@ const RestaurantInfoCard = ({ restaurant = {} }) => {
                 CLOSED TEMPORARILY
               </Text>
             )}
-            <Spacer variant={'left.large'} />
+            {/* <Spacer variant={'left.large'} />
             {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
             <Spacer variant={'left.large'} />
-            <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+            <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} /> */}
+            <Spacer position="left" size="large">
+              {isOpenNow && <SvgXml xml={open} width={20} height={20} />}
+            </Spacer>
+            <Spacer position="left" size="large">
+              <Image style={{ width: 15, height: 15 }} source={{ uri: icon }} />
+            </Spacer>
           </SectionEnd>
         </Section>
         <Address>{address}</Address>
